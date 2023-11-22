@@ -4,8 +4,9 @@ public class Player{
   private Potential style;
   
   
-  public Player(String n){
+  public Player(String n, Potential p){
     name = n;
+    style = p;
   }
   public void rest(){
     healthpoints += 25;
