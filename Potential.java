@@ -10,9 +10,13 @@ public class Potential{
    System.out.println("3) Sweeping Strike: Deal damage equal to your attack value up to 3 targets in front of you");
   }
   public void displayMoves_Ranger(){
-    //Add moves for Ranger
+   System.out.println("1) Quick Hands: Gain 40% attack speed for 10 seconds");
+   System.out.println("2) Piercing Shot: Shoot a powerful shot that can hit up to three enemies in a line");
+   System.out.println("3) Follow Up Shot: Shoot one arrow followed by two others");
   }
   public void displayMoves_Mage(){
-    //Add moves for Mage
+   System.out.println("1) Concentrate: Recover 50 Mana over 10 seconds")
+   System.out.println("2) Fiery Blast: Summon a fireball that hits up to three enemies")
+   System.out.println("3) Arcane Beam: Summon a beam made of pure magic that lasts for 5 seconds")
   }
 }
