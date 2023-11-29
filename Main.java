@@ -6,7 +6,6 @@ public class Main{
     boolean playing = true;
     Player player = RPG.character_creation();
     while (playing){
-      //To be added...
       break;
     }
       System.out.println("Thanks for Playing");

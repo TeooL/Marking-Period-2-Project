@@ -8,8 +8,17 @@ public class Game{
     System.out.println("The left object is the sword, the middle object is the wand, the right object is the bow");
     System.out.println("Choose...");
     String weapon = input.nextLine();
+    if (weapon.equals("sword")) weapon = "warrior";
+    else if (weapon.equals("wand")) weapon = "mage";
+    else if (weapon.equals("bow")) weapon = "ranger";
     Potential player_potential = new Potential(weapon);
     Player player = new Player(player_name, player_potential);
     return player;
+  }
+  public void act_one(){
+    System.out.println("You wake up in a dimly lit room, surrounded by prison cells.");
+    System.out.println("Your weapon is in front of you and your door is swung wide open.");
+    System.out.println("All the other cells seem to be open too.");
+    System.out.println("You leave your cell and see another prisoner before you with a metal pipe.");
   }
 }
