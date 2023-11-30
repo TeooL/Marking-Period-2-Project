@@ -22,4 +22,5 @@ public class Player{
     int health_after = e.get_health() - damage;
     e.change_health(health_after);
   }
+  public Potential getStyle(){return style;}
 }
