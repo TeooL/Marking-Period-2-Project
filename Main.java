@@ -5,20 +5,11 @@ import javax.swing.*;
 public class Main{
   public static void main(String[]args){
     JFrame frame = new JFrame("Map Layout");
-    JFrame frame_2 = new JFrame("Buttons");
     GridLayout grid = new GridLayout(8,8);
     frame.setVisible(true);
-    frame_2.setVisible(true);
-    frame_2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame_2.setSize(500,500);
     frame.setSize(1000,1000);
     frame.setLayout(grid);
-    frame.setResizable(true);
-    for (int i = 0; i != 64;i++){
-      JButton jbutton = new JButton();
-      frame.add(jbutton);
-    }
     JButton ability_1 = new JButton("Ability 1");
     JButton ability_2 = new JButton("Ability 2");
     JButton ability_3 = new JButton("Ability 3");
@@ -37,6 +28,9 @@ public class Main{
     boolean playing = true;
     Player player = RPG.character_creation();
     while (playing){
+      RPG.act_one();
+      Enemy prisoner = new Enemy("Prisoner", 50, 10 );
+
       break;
     }
       System.out.println("Thanks for Playing");

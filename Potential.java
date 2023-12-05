@@ -17,7 +17,7 @@ public class Potential{
   public void displayMoves_Mage(){
     System.out.println("1) Concentrate: Recover 50 Mana over 10 seconds");
     System.out.println("2) Fiery Blast: Summon a fireball that hits up to three enemies");
-    System.out.println("3) Arcane Beam: Summon a beam made of pure magic that lasts for 5 seconds");
+    System.out.println("3) Arcane Beam: Summon a beam made of pure magic that deals 2.5x your base damage value");
   }
   public void displayAbilities(String style){
     if (style.equals("warrior")) displayMoves_Warrior();

@@ -2,12 +2,17 @@ public class Player{
   private String name;
   private int healthpoints = 100;
   private Potential style;
-  private int damage;
+  private int damage = 10;
   private int mana;
   
   public Player(String n, Potential p){
     name = n;
     style = p;
+  }
+  public Player(String n, Potential p, int z){
+    name = n;
+    style = p;
+    mana = 100;
   }
   public void rest(){
     healthpoints += 25;
