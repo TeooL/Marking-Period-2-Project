@@ -24,4 +24,18 @@ public class Potential{
     else if (style.equals("mage")) displayMoves_Mage();
     else if (style.equals("ranger")) displayMoves_Ranger();
   }
+  public void unwaveringResolve(Player p){
+    int missing_hp = 100 - p.getHp();
+    double shield_gain = missing_hp * 0.25;
+    p.changeHp(p.getHp() + shield_gain);
+  }
+  public void decisiveBlows(Player p, Enemy e){
+    int damage_dealt = p.getDamage() * 2;
+    e.change_health(e.get_health() - damage_dealt);
+  }
+  public void sweepingStrike(Player p, Enemy a, Enemy b, Enemy c){
+    a.change_health(a.get_health() - p.getDamage());
+    b.change_health(b.get_health() - p.getDamage());
+    c.change_health(c.get_health() - p.getDamage());
+  }
 }

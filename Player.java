@@ -20,12 +20,17 @@ public class Player{
   public int getHp(){
     return healthpoints;
   }
-  public void changeHp(int num){
+  public void changeHp(double num){
     healthpoints -= num;
   }
   public void attack_enemy(Enemy e, int damage){
     int health_after = e.get_health() - damage;
     e.change_health(health_after);
   }
+  public int getDamage(){return damage;}
   public Potential getStyle(){return style;}
+  public void initiateFight(Enemy e){
+    while (e.get_health() >= 0 && healthpoints >= 0){
+    }
+  }
 }
