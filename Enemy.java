@@ -1,6 +1,6 @@
 public class Enemy{
   private String name;
-  private int health;
+  private double health;
   private int movement;
   private int attack_dmg;
   
@@ -9,10 +9,10 @@ public class Enemy{
     health = h;
     attack_dmg = ad;
   }
-  public int get_health(){
+  public double get_health(){
     return health;
   }
-  public void change_health(int h){
+  public void change_health(double h){
     health = h;
   }
   public String toString(){ return name; }
