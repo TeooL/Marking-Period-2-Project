@@ -3,7 +3,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
 public class GUI {
-    public void displayMap(){
+    public void displayOptions(){
         JFrame frame = new JFrame("Map Layout");
         GridLayout grid = new GridLayout(8,8);
         frame.setVisible(true);
@@ -20,8 +20,5 @@ public class GUI {
         frame.add(ability_3);
         frame.add(ultimate);
         frame.add(input);
-    }
-    public static String coloredText(String color, String text){
-        return color + text + "\u001B";
     }
 }
