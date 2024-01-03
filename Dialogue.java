@@ -14,4 +14,6 @@ public class Dialogue {
         System.out.println("You can always return to the entrance of the dungeon to sell your artifacts by the shop");
         System.out.println("The shop also allows you to buy upgrades to help boost your stats");
     }
+    public void start(){
+    }
 }
