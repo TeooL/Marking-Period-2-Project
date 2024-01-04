@@ -1,6 +1,7 @@
-
+import java.util.Scanner;
 public class Dialogue {
-    Colorizer color = new Colorizer();
+    private Scanner input = new Scanner(System.in);
+    private Colorizer color = new Colorizer();
     public void introduction(){
         System.out.println("Hello, Welcome to Dungeon Crawler");
         System.out.println("This is a text based RPG game where you will explore an ancient dungeon");
@@ -14,6 +15,21 @@ public class Dialogue {
         System.out.println("You can always return to the entrance of the dungeon to sell your artifacts by the shop");
         System.out.println("The shop also allows you to buy upgrades to help boost your stats");
     }
-    public void start(){
+    public Player character_creation(){
+        System.out.println("It's time to make your character.");
+        System.out.println("What is your name?");
+        String player_name = input.nextLine();
+        System.out.println("Now what path will you walk?");
+        System.out.println("Warrior (1) The path of brute force and defense");
+        System.out.println("Ranger (2) The path of adaptability and swiftness");
+        System.out.println("Rogue (3) The path of stealth and deadly strikes");
+        int choice = input.nextInt();
+        String chosen_path = "";
+        if (choice == 1) chosen_path = "Warrior";
+        else if (choice == 2) chosen_path = "Ranger";
+        else if (choice == 3) chosen_path = "Rogue";
+        else System.out.println("Invalid Choice");
+        Player player = new Player(player_name, chosen_path);
+        return player;
     }
 }

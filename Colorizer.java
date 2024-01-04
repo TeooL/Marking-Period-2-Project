@@ -10,4 +10,7 @@ public class Colorizer { // This will be used to add color to all the text
     public void makeBlue(String text){
         System.out.println(blue + text + resetter);
     }
+
+    public void makeGreen(String text){System.out.println(green + text + resetter);}
+    public void makeYellow(String text){System.out.println(yellow + text + resetter);}
 }
