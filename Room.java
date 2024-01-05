@@ -84,7 +84,10 @@ public class Room {
         }
     }
     public void puzzle1(){
-        // Add puzzle rooms next time
+        System.out.println("You walk into the room and see some strange symbols on the wall");
+        System.out.println("There is a scale made of ancient material and in front of it are two objects.");
+        System.out.println();
+        //Research about puzzles you could add.
     }
     public void puzzle2(){
         // Add puzzle rooms next time

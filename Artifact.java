@@ -8,4 +8,7 @@ public class Artifact {
     public void display_sell_val(){
         System.out.println(name + " sells for $" + sell_val);
     }
+    public String toString(){
+        return name;
+    }
 }

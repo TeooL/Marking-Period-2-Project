@@ -7,6 +7,6 @@ public class Main {
         System.out.println();
         dia.how_to_play();
         Colorizer color = new Colorizer();
-        color.makeBlue("This is Red");
+        color.makeBlue("This is Blue");
     }
 }
