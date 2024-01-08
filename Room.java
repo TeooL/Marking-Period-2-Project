@@ -95,5 +95,14 @@ public class Room {
     public void puzzle3(){
         // add puzzle rooms next time
     }
+    public void enterRoom(Player p, int i){
+        if (i == 0) num_enemies = rand.nextInt(4) + 1;
+        if (i == 1) arrowTrap(p);
+        if (i == 2) fireTrap(p);
+        if (i == 3) spikedBallsTrap(p);
+        if (i == 4) puzzle1();
+        if (i == 5) puzzle2();
+        if (i == 6) puzzle3();
+    }
 }
 
