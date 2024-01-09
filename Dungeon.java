@@ -5,6 +5,8 @@ public class Dungeon {
     private Room current_room = floor1[0];
 
     public void play(){
+        GUI display = new GUI();
+        display.MainWindow();
         Dialogue dia = new Dialogue();
         dia.introduction();
         System.out.println();

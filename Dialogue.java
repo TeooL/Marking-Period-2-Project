@@ -26,8 +26,8 @@ public class Dialogue {
         int choice = input.nextInt();
         String chosen_path = "";
         if (choice == 1) chosen_path = "Warrior";
-        else if (choice == 2) chosen_path = "Ranger";
-        else if (choice == 3) chosen_path = "Rogue";
+        if (choice == 2) chosen_path = "Ranger";
+        if (choice == 3) chosen_path = "Rogue";
         else System.out.println("Invalid Choice");
         Player player = new Player(player_name, chosen_path);
         return player;
