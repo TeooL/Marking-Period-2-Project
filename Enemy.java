@@ -35,6 +35,7 @@ public class Enemy {
     }
     public void healSelf(){
         System.out.println(name + " is healing themselves!");
+        this.gainHp(30);
 
     }
 }

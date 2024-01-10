@@ -18,4 +18,7 @@ public class GUI {
         frame.getContentPane().add(BorderLayout.NORTH, mb);
         frame.setVisible(true);
     }
+    public void StartMenu(){
+        
+    }
 }

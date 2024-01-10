@@ -16,4 +16,8 @@ public class Dungeon {
         Colorizer color = new Colorizer();
         color.makeBlue("This is Blue");
     }
+    public void fight(Player p, Enemy e){
+
+
+    }
 }
