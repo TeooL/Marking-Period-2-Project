@@ -35,10 +35,10 @@ public class Dialogue {
     public int decide_action(){
         System.out.println("What do you do?");
         System.out.println("(1) Basic Attack");
-        System.out.println("(Ability 1) Placeholder");
-        System.out.println("(Ability 2) Placeholder");
-        System.out.println("(Ability 3) Placeholder");
-        System.out.println("(Ability 4) Placeholder");
+        System.out.println("(2) (Ability 1) Placeholder");
+        System.out.println("(3) (Ability 2) Placeholder");
+        System.out.println("(4) (Ability 3) Placeholder");
+        System.out.println("(5) (Ability 4) Placeholder");
         int choice = input.nextInt();
         return choice;
     }

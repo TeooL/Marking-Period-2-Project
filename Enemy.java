@@ -1,8 +1,29 @@
+import java.util.Random;
 public class Enemy {
+    private Random rand = new Random();
     private String name;
-    private int hp;
-    private int attack_val = 1;
-    private int charge_atk_val;
+    private double hp;
+    private double attack_val = 10.0;
+    private double charge_atk_val = 1;
+    public Enemy(){
+        int random_enemy = rand.nextInt(5) + 1;
+        if (random_enemy == 1){
+            name = "Skeleton";
+            hp = 100;
+        }
+        if (random_enemy == 2){
+            name = "Zombie";
+            hp = 120;
+        }
+        if (random_enemy == 3){
+            name = "Giant Bat";
+            hp = 90;
+        }
+        if (random_enemy == 4){
+            name = "Giant Spider";
+            hp = 110;
+        }
+    }
     public Enemy(String name, int hp, int attack_val){
         this.name = name;
         this.hp = hp;
@@ -14,6 +35,7 @@ public class Enemy {
     public void loseHp(int health){
         hp -= health;
     }
+    public double getHp() {return hp;}
     public void chargeAttack(Player p){
         if (charge_atk_val == 2){
             System.out.println(name + " is charged attacking!");
@@ -36,6 +58,11 @@ public class Enemy {
     public void healSelf(){
         System.out.println(name + " is healing themselves!");
         this.gainHp(30);
-
+    }
+    public void decide_action(Player p){
+        int action = rand.nextInt(4);
+        if (action == 0) attack(p);
+        if (action == 1) chargeAttack(p);
+        if (action == 3) healSelf();
     }
 }

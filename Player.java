@@ -1,22 +1,26 @@
+import java.util.Scanner;
 public class Player {
     private String name;
     private String path;
+    private double max_hp = 100;
     private double hp = 100;
     private double attack_power = 10.0;
+    private double max_mana = 100;
     private double mana = 100;
     private Attack[] abilities;
-
+    private Scanner input = new Scanner(System.in);
 
     public Player(String name,String path){
         this.name = name;
         this.path = path;
     }
-    public void gainHp(int health){
+    public void gainHp(double health){
         hp += health;
     }
-    public void loseHp(int health){
+    public void loseHp(double health){
         hp -= health;
     }
+    public double getHp(){return hp;}
     public void display_abilities(){
         if (path.equals("Warrior")){
             System.out.println("(1) Double Strike - Attacks your enemy twice in quick succession.");
@@ -46,6 +50,26 @@ public class Player {
             System.out.println("Deals damage equal to 1.5x your attack power with a small chance to instantly kill them");
             System.out.println("(4) Living Nightmare - Disappear and hover above your enemy for three seconds and then attack them");
             System.out.println("Deals damage equal to 4x your attack power, if the enemy is below 35% of the max health, they instantly die");
+        }
+    }
+    public void levelUp(){
+        System.out.println("You have leveled up!");
+        System.out.println("What stat would you like to increase?");
+        System.out.println("(1) Attack Power (+5.0)");
+        System.out.println("(2) Health Points (+10.0)");
+        System.out.println("(3) Mana (+20.0)");
+        int choice = input.nextInt();
+        if (choice == 1) {
+            attack_power += 5.0;
+            System.out.println("Your attack power has been increased");
+        }
+        if (choice == 2) {
+            hp += 10;
+            System.out.println("Your max health has been increased");
+        }
+        if (choice == 3) {
+            mana += 20;
+            System.out.println("Your max mana has been increased");
         }
     }
 }

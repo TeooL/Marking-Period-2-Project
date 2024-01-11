@@ -5,18 +5,25 @@ public class Room {
     private Random rand = new Random();
     private String room_type; //Monster, Trap, Puzzle
     private int num_enemies;
+    private Enemy[] enemies = {};
     private int danger_val;
     private Artifact artifact;
     public Room(){
-        room_type = "Puzzle";
-    }
-    public Room(int n){
-        room_type = "Monster";
-        num_enemies = n;
-    }
-    public Room(int n, String trap_name){
-        room_type = "Trap";
-        danger_val = n;
+        int rand_room = rand.nextInt(100) + 1;
+        if (rand_room <= 25){
+            room_type = "Trap";
+        }
+        if (rand_room > 25 && rand_room <= 50){
+            room_type = "Puzzle";
+        }
+        if (rand_room > 50){
+            room_type = "Monster";
+            num_enemies = rand.nextInt(3) + 1;
+            enemies = new Enemy[num_enemies];
+            for (int i = 0;i < num_enemies;i++){
+                enemies[i] = new Enemy();
+            }
+        }
     }
     public void arrowTrap(Player p){ // Add health loss when the player gets hit later
         System.out.println("You step into the room and you feel your foot sink into the floor.");
