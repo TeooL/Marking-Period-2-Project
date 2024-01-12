@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
+import java.awt.Graphics;
 public class GUI {
     public void MainWindow(){
         JFrame frame = new JFrame("Chat Frame");
@@ -19,6 +21,5 @@ public class GUI {
         frame.setVisible(true);
     }
     public void StartMenu(){
-        
     }
 }

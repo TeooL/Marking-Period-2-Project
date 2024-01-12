@@ -15,12 +15,17 @@ public class Player {
         this.path = path;
     }
     public void gainHp(double health){
+        System.out.println("You have gained " + health + " HP.");
         hp += health;
     }
     public void loseHp(double health){
+        System.out.println("You have lost " + health + " HP.");
         hp -= health;
     }
     public double getHp(){return hp;}
+    public String getPath(){
+        return path;
+    }
     public void display_abilities(){
         if (path.equals("Warrior")){
             System.out.println("(1) Double Strike - Attacks your enemy twice in quick succession.");
@@ -71,5 +76,16 @@ public class Player {
             mana += 20;
             System.out.println("Your max mana has been increased");
         }
+    }
+    public void war_double_strike(Enemy e){
+        double damage = 1.5 * attack_power;
+        e.loseHp(damage);
+    }
+    public void war_strong_resolve(){
+        hp += 0.35 * max_hp;
+    }
+    public void war_diving_strike(Enemy e){
+        double damage = 2.5 * attack_power;
+        e.loseHp(damage);
     }
 }

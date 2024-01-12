@@ -29,10 +29,10 @@ public class Enemy {
         this.hp = hp;
         this.attack_val = attack_val;
     }
-    public void gainHp(int health){
+    public void gainHp(double health){
         hp += health;
     }
-    public void loseHp(int health){
+    public void loseHp(double health){
         hp -= health;
     }
     public double getHp() {return hp;}

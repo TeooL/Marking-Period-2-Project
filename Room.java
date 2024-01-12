@@ -102,14 +102,23 @@ public class Room {
     public void puzzle3(){
         // add puzzle rooms next time
     }
-    public void enterRoom(Player p, int i){
-        if (i == 0) num_enemies = rand.nextInt(4) + 1;
-        if (i == 1) arrowTrap(p);
-        if (i == 2) fireTrap(p);
-        if (i == 3) spikedBallsTrap(p);
-        if (i == 4) puzzle1();
-        if (i == 5) puzzle2();
-        if (i == 6) puzzle3();
+    public void enterRoom(Player p,Dungeon d){
+        if (room_type.equals("Monster")){
+            for (int i = 0;i < enemies.length;i++)
+                d.fight(p,enemies[i]);
+        }
+        if (room_type.equals("Trap")){
+            int trap_room = rand.nextInt(3) + 1;
+            if (trap_room == 1) arrowTrap(p);
+            if (trap_room == 2) fireTrap(p);
+            if (trap_room == 3) spikedBallsTrap(p);
+        }
+        if (room_type.equals("Puzzle")){
+            int puzzle_room = rand.nextInt(3) + 1;
+            if (puzzle_room == 1) puzzle1();
+            if (puzzle_room == 2) puzzle2();
+            if (puzzle_room == 3) puzzle3();
+        }
     }
 }
 

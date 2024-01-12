@@ -14,6 +14,9 @@ public class Dialogue {
         System.out.println("There will be multiple rooms that you can go through and you may encounter enemies, a trap, or a puzzle");
         System.out.println("You can always return to the entrance of the dungeon to sell your artifacts by the shop");
         System.out.println("The shop also allows you to buy upgrades to help boost your stats");
+        System.out.println();
+        System.out.println("It's time to enter the dungeon");
+        System.out.println("Try your best to stay alive");
     }
     public Player character_creation(){
         System.out.println("It's time to make your character.");
