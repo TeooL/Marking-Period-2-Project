@@ -7,12 +7,29 @@ public class Player {
     private double attack_power = 10.0;
     private double max_mana = 100;
     private double mana = 100;
-    private Attack[] abilities;
+    private Attack[] attacks = new Attack[3];
     private Scanner input = new Scanner(System.in);
 
     public Player(String name,String path){
         this.name = name;
         this.path = path;
+    }
+    public void assignAbilities(){
+        if (path.equals("Warrior")){
+            attacks[0] = new Attack("Double Strike", 10, 1.5);
+            attacks[1] = new Attack("Rush Down", 20, 2.5);
+            attacks[2] = new Attack("Mighty Swing", 40, 3.0);
+        }
+        if (path.equals("Ranger")){
+            attacks[0] = new Attack("True Shot", 15, 1.5);
+            attacks[1] = new Attack("Twin Arrow", 15, 1.0);
+            attacks[2] = new Attack("Requiem", 50, 2.5);
+        }
+        if (path.equals("Rogue")){
+            attacks[0] = new Attack("Fearless Stab", 15, 2.0);
+            attacks[1] = new Attack("Taste of Death", 20, 1.5);
+            attacks[2] = new Attack("Living Nightmare", 50, 4.0);
+        }
     }
     public void gainHp(double health){
         System.out.println("You have gained " + health + " HP.");
@@ -44,7 +61,7 @@ public class Player {
             System.out.println("(3) Twin Arrow - Fires one arrow followed by a second at the same spot on the enemy");
             System.out.println("Deals normal damage with the first arrow, but if the second arrow hits, it deals 3x damage");
             System.out.println("(4) Requiem - Unleash a barrage of arrows at all the enemies");
-            System.out.println("Deals 5x damage to all enemies on the field");
+            System.out.println("Deals 2.5x damage to all enemies on the field");
         }
         if (path.equals("Rogue")){
             System.out.println("(1) Fearless Stab - Brandish your weapon and charge straight at your enemy for a stab");
