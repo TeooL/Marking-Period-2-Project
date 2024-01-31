@@ -6,17 +6,12 @@ public class Room {
     private String room_type; //Monster, Trap, Puzzle
     private int num_enemies;
     private Enemy[] enemies = {};
-    private int danger_val;
-    private Artifact artifact;
     public Room(){
         int rand_room = rand.nextInt(100) + 1;
         if (rand_room <= 25){
             room_type = "Trap";
         }
-        if (rand_room > 25 && rand_room <= 50){
-            room_type = "Puzzle";
-        }
-        if (rand_room > 50){
+        if (rand_room > 25){
             room_type = "Monster";
             num_enemies = rand.nextInt(3) + 1;
             enemies = new Enemy[num_enemies];
@@ -25,7 +20,7 @@ public class Room {
             }
         }
     }
-    public void arrowTrap(Player p){ // Add health loss when the player gets hit later
+    public void arrowTrap(Player p){
         System.out.println("You step into the room and you feel your foot sink into the floor.");
         System.out.println("A wall opens up at the end of the hallway and a lot of arrows come flying towards you.");
         System.out.println("You have 3 options.");
@@ -35,17 +30,26 @@ public class Room {
         if (option == 1){
             hit_val = rand.nextInt(101);
             if (hit_val > 50) System.out.println("You dodged!");
-            else System.out.println("You were hit!");
+            else {
+                System.out.println("You were hit!");
+                p.loseHp(20);
+            }
         }
         if (option == 2){
             hit_val = rand.nextInt(101);
             if (hit_val > 80) System.out.println("The arrows fly past you!");
-            else System.out.println("You were hit, but you took reduced damage as a result of blocking");
+            else {
+                System.out.println("You were hit, but you took reduced damage as a result of blocking");
+                p.loseHp(10);
+            }
         }
         if (option == 3){
             hit_val = rand.nextInt(101);
             if (hit_val > 90) System.out.println("All the arrows fly past you. Wow");
-            else System.out.println("You were hit. What did you expect.");
+            else {
+                System.out.println("You were hit. What did you expect.");
+                p.loseHp(20);
+            }
         }
     }
     public void fireTrap(Player p){
@@ -59,12 +63,18 @@ public class Room {
         if (option == 1){
             hit_val = rand.nextInt(101);
             if (hit_val > 30) System.out.println("You made it out in time");
-            else System.out.println("The flames reach you and you are slightly burned");
+            else {
+                System.out.println("The flames reach you and you are slightly burned");
+                p.loseHp(10);
+            }
         }
         if (option == 2){
             hit_val = rand.nextInt(101);
             if (hit_val > 50) System.out.println("You rolled under the wave of flames");
-            else System.out.println("Your back hits the flames while rolling and you are burnt");
+            else {
+                System.out.println("Your back hits the flames while rolling and you are burnt");
+                p.loseHp(20);
+            }
         }
     }
     public void spikedBallsTrap(Player p){
@@ -77,47 +87,40 @@ public class Room {
         if (option == 1){
             hit_val = rand.nextInt(101);
             if (hit_val > 30) System.out.println("You dodge away from the spiked balls");
-            else System.out.println("Some of the spiked balls hit you");
+            else {
+                System.out.println("Some of the spiked balls hit you");
+                p.loseHp(20);
+            }
         }
         if (option == 2){
             hit_val = rand.nextInt(101);
             if (hit_val > 50) System.out.println("You block bracing for an impact, but none of them hit you");
-            else System.out.println("The balls hit you, but you take reduced damage from blocking");
+            else {
+                System.out.println("The balls hit you, but you take reduced damage from blocking");
+                p.loseHp(10);
+            }
         }
         if (option == 3){
             hit_val = rand.nextInt(101);
             if (hit_val > 50) System.out.println("The spiked balls all miss you. Lucky");
-            else System.out.println("You were hit. What did you expect.");
+            else {
+                System.out.println("You were hit. What did you expect.");
+                p.loseHp(20);
+            }
         }
-    }
-    public void puzzle1(){
-        System.out.println("You walk into the room and see some strange symbols on the wall");
-        System.out.println("There is a scale made of ancient material and in front of it are two objects.");
-        System.out.println();
-        //Research about puzzles you could add.
-    }
-    public void puzzle2(){
-        // Add puzzle rooms next time
-    }
-    public void puzzle3(){
-        // add puzzle rooms next time
     }
     public void enterRoom(Player p,Dungeon d){
         if (room_type.equals("Monster")){
-            for (int i = 0;i < enemies.length;i++)
-                d.fight(p,enemies[i]);
+            for (Enemy enemy : enemies) {
+                if (p.getHp() <= 0) break;
+                d.fight(p, enemy);
+            }
         }
         if (room_type.equals("Trap")){
             int trap_room = rand.nextInt(3) + 1;
             if (trap_room == 1) arrowTrap(p);
             if (trap_room == 2) fireTrap(p);
             if (trap_room == 3) spikedBallsTrap(p);
-        }
-        if (room_type.equals("Puzzle")){
-            int puzzle_room = rand.nextInt(3) + 1;
-            if (puzzle_room == 1) puzzle1();
-            if (puzzle_room == 2) puzzle2();
-            if (puzzle_room == 3) puzzle3();
         }
     }
 }

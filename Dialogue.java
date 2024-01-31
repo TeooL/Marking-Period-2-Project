@@ -3,46 +3,39 @@ public class Dialogue {
     private Scanner input = new Scanner(System.in);
     private Colorizer color = new Colorizer();
     public void introduction(){
-        System.out.println("Hello, Welcome to Dungeon Crawler");
-        System.out.println("This is a text based RPG game where you will explore an ancient dungeon");
-        System.out.println("Legend has it that it contains many riches");
-        System.out.println("However, it is filled with monsters, traps, and puzzles");
-        System.out.println("Only the greatest adventurers will ever hope to conquer this dungeon");
+        color.makeGreen("Hello, Welcome to Dungeon Crawler");
+        color.makeGreen("This is a text based RPG game where you will explore an ancient dungeon");
+        color.makeGreen("Legend has it that it contains many riches");
+        color.makeGreen("However, it is filled with monsters and traps");
+        color.makeGreen("Only the greatest adventurers will ever hope to conquer this dungeon");
     }
     public void how_to_play(){
-        System.out.println("The goal of this game is to explore the dungeon and gather as many artifacts as possible");
-        System.out.println("There will be multiple rooms that you can go through and you may encounter enemies, a trap, or a puzzle");
-        System.out.println("You can always return to the entrance of the dungeon to sell your artifacts by the shop");
-        System.out.println("The shop also allows you to buy upgrades to help boost your stats");
+        color.makeGreen("The goal of this game is to explore the dungeon and reach the end");
+        color.makeGreen("There will be multiple rooms that you can go through and you may encounter enemies or a trap");
         System.out.println();
-        System.out.println("It's time to enter the dungeon");
-        System.out.println("Try your best to stay alive");
+        color.makeGreen("It's time to enter the dungeon");
+        color.makeGreen("Try your best to stay alive");
     }
     public Player character_creation(){
-        System.out.println("It's time to make your character.");
-        System.out.println("What is your name?");
-        String player_name = input.nextLine();
-        System.out.println("Now what path will you walk?");
-        System.out.println("Warrior (1) The path of brute force and defense");
-        System.out.println("Ranger (2) The path of adaptability and swiftness");
-        System.out.println("Rogue (3) The path of stealth and deadly strikes");
+        color.makeGreen("Now what path will you walk?");
+        color.makeRed("Warrior (1) The path of brute force and defense");
+        color.makeGreen("Ranger (2) The path of adaptability and swiftness");
+        color.makeBlue("Rogue (3) The path of stealth and deadly strikes");
         int choice = input.nextInt();
         String chosen_path = "";
         if (choice == 1) chosen_path = "Warrior";
-        if (choice == 2) chosen_path = "Ranger";
-        if (choice == 3) chosen_path = "Rogue";
+        else if (choice == 2) chosen_path = "Ranger";
+        else if (choice == 3) chosen_path = "Rogue";
         else System.out.println("Invalid Choice");
-        Player player = new Player(player_name, chosen_path);
+        Player player = new Player("Player", chosen_path);
         return player;
     }
     public int decide_action(){
-        System.out.println("What do you do?");
-        System.out.println("(1) Basic Attack");
-        System.out.println("(2) (Ability 1) Placeholder");
-        System.out.println("(3) (Ability 2) Placeholder");
-        System.out.println("(4) (Ability 3) Placeholder");
-        System.out.println("(5) (Ability 4) Placeholder");
-        int choice = input.nextInt();
-        return choice;
+        color.makeYellow("What do you do?");
+        color.makeYellow("(1) Basic Attack");
+        color.makeYellow("(2) Heal");
+        color.makeYellow("(3) Abilities");
+        int action = input.nextInt();
+        return action;
     }
 }
