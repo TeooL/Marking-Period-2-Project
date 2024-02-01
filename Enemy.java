@@ -1,5 +1,7 @@
 import java.util.Random;
+//
 public class Enemy {
+    private static int enemies_made = 0;
     private Random rand = new Random();
     private String name;
     private double hp;
@@ -40,6 +42,7 @@ public class Enemy {
         this.name = name;
         this.hp = hp;
         this.attack_val = attack_val;
+        enemies_made++;
     }
     public void gainHp(double health){
         hp += health;
